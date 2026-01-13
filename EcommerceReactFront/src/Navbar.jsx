@@ -11,6 +11,11 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
                 Mi App React
             </h2>
 
+            {/* Agrega esto junto al título o donde prefieras */}
+            <button onClick={() => navigate('/')} style={{ ...styles.loginBtn, backgroundColor: 'transparent' }}>
+                Productos
+            </button>
+
             {isLoggedIn ? (
                 // CASO A: Si ya entró, mostramos Cerrar Sesión
                 <button onClick={onLogout} style={styles.logoutBtn}>

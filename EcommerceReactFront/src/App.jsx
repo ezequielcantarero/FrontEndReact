@@ -5,6 +5,8 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Login from './Login';
+import Profile from './Profile';
+import ProductList from './ProductList';
 
 const Home = () => (
   <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -53,7 +55,7 @@ function App() {
       <div className="container">
         <Routes>
           {/* Ruta principal */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ProductList />} />
 
           {/* Ruta de Login:
             Si el usuario YA está logueado, lo redirigimos al Home (Navigate).
@@ -63,6 +65,13 @@ function App() {
             path="/login"
             element={
               isLoggedIn ? <Navigate to="/" /> : <Login onLogin={handleLogin} />
+            }
+          />
+          {/* Ruta de Perfil */}
+          <Route
+            path="/profile"
+            element={
+              isLoggedIn ? <Profile /> : <Navigate to="/login" />
             }
           />
         </Routes>
